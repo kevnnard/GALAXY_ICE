@@ -44,7 +44,7 @@ export const DataTableReportComponent = () => {
 					</tr>
 				</thead>
 				<tbody className="">
-					{data.map((row) => (
+					{data.map((row: any) => (
 						<tr key={row.id} className="border border-neutral-700">
 							{tableHeaders.map((header) => (
 								<td className="py-2" key={header.name}>

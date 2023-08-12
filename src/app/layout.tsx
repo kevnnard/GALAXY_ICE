@@ -3,6 +3,7 @@ import { SidebarComponet } from "@/components/app/sidebar";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ProviderRedux from "./providerRedux";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,11 +20,13 @@ export default function RootLayout({
 	return (
 		<html lang="es">
 			<body className={inter.className}>
-				<HeaderComponent />
-				<div className="flex w-full h-full">
-					<SidebarComponet />
-					{children}
-				</div>
+				<ProviderRedux>
+					<HeaderComponent />
+					<div className="flex w-full h-full">
+						<SidebarComponet />
+						{children}
+					</div>
+				</ProviderRedux>
 			</body>
 		</html>
 	);
