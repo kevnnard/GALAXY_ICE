@@ -1,5 +1,6 @@
 import { HeaderComponent } from "@/components/app/header";
 import { SidebarComponet } from "@/components/app/sidebar";
+import connectDB from "@/libs/mongodb";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -17,6 +18,7 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
+	connectDB();
 	return (
 		<html lang="es">
 			<body className={inter.className}>

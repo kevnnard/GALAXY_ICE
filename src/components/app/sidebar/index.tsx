@@ -3,7 +3,7 @@ import { LinkSideBarComponent } from "./LinkSidebar";
 
 const links = [
 	{ name: "Reportes", href: "/", icon: IconsCatalog.STATS },
-	{ name: "Ventas", href: "/ventas", icon: IconsCatalog.CART },
+	{ name: "Nueva venta", href: "/nueva-venta", icon: IconsCatalog.CART },
 	{ name: "Gastos", href: "/gastos", icon: IconsCatalog.MONEY },
 	{ name: "Inventario", href: "/inventario", icon: IconsCatalog.STORE },
 ];
