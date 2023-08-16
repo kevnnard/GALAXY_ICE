@@ -2,7 +2,7 @@
 import { supabase } from "@/config/client";
 import { useState } from "react";
 
-export const NuevoItemComponent = ({ router }: any) => {
+export const NuevoItemComponent = ({ getData }: any) => {
 	const [item, setItem] = useState<any>({
 		sabor: "",
 		cantidad: Number,
@@ -16,9 +16,7 @@ export const NuevoItemComponent = ({ router }: any) => {
 		if (error) console.log(error);
 		else {
 			setItem({ sabor: "", cantidad: Number, precio: Number });
-			setTimeout(() => {
-				router.refresh();
-			}, 3000);
+			getData();
 		}
 	};
 
@@ -49,11 +47,13 @@ export const NuevoItemComponent = ({ router }: any) => {
 				onChange={(e) => setItem({ ...item, precio: e.target.value })}
 			/>
 
-			<button
-				type="submit"
-				className="bg-green-500 text-white rounded-md px-4 py-2 mt-5">
-				Agregar
-			</button>
+			{item.sabor && item.cantidad && item.precio && (
+				<button
+					type="submit"
+					className="bg-green-500 text-white rounded-md px-4 py-2 mt-5">
+					Agregar
+				</button>
+			)}
 		</form>
 	);
 };
