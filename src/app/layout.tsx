@@ -1,17 +1,8 @@
 "use client";
 import { supabase } from "@/config/client";
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
-
-export const metadata: Metadata = {
-	title: "Galaxy Ice ",
-	description: "Created by @Kevnnard",
-};
 
 export default function RootLayout({
 	children,
@@ -28,7 +19,10 @@ export default function RootLayout({
 
 	return (
 		<html lang="es">
-			<body className={inter.className}>{children}</body>
+			<head>
+				<title>Galaxy Ice </title>
+			</head>
+			<body>{children}</body>
 		</html>
 	);
 }
