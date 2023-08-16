@@ -1,10 +1,10 @@
-import { HeaderComponent } from "@/components/app/header";
-import { SidebarComponet } from "@/components/app/sidebar";
-import connectDB from "@/libs/mongodb";
+"use client";
+import { supabase } from "@/config/client";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 import "./globals.css";
-import ProviderRedux from "./providerRedux";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,18 +18,17 @@ export default function RootLayout({
 }: {
 	children: React.ReactNode;
 }) {
-	connectDB();
+	const router = useRouter();
+	useEffect(() => {
+		supabase.auth.onAuthStateChange((event: any, session: any) => {
+			if (!session) router.replace("/");
+			else router.replace("/dashboard");
+		});
+	}, [router]);
+
 	return (
 		<html lang="es">
-			<body className={inter.className}>
-				<ProviderRedux>
-					<HeaderComponent />
-					<div className="flex w-full h-full">
-						<SidebarComponet />
-						{children}
-					</div>
-				</ProviderRedux>
-			</body>
+			<body className={inter.className}>{children}</body>
 		</html>
 	);
 }

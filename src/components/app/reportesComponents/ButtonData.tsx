@@ -18,7 +18,7 @@ export const ButtonDataComponent = ({
 	return (
 		<Link
 			href={{
-				pathname: "/",
+				pathname: "/dashboard",
 				query: { date: button.value },
 			}}
 			onClick={() => setActiveButton(button.id)}

@@ -2,10 +2,18 @@ import { IconsCatalog } from "@/enums/icons.enum";
 import { LinkSideBarComponent } from "./LinkSidebar";
 
 const links = [
-	{ name: "Reportes", href: "/", icon: IconsCatalog.STATS },
-	{ name: "Nueva venta", href: "/nueva-venta", icon: IconsCatalog.CART },
-	{ name: "Gastos", href: "/gastos", icon: IconsCatalog.MONEY },
-	{ name: "Inventario", href: "/inventario", icon: IconsCatalog.STORE },
+	{ name: "Reportes", href: "/dashboard", icon: IconsCatalog.STATS },
+	{
+		name: "Nueva venta",
+		href: "/dashboard/nueva-venta",
+		icon: IconsCatalog.CART,
+	},
+	{ name: "Gastos", href: "/dashboard/gastos", icon: IconsCatalog.MONEY },
+	{
+		name: "Inventario",
+		href: "/dashboard/inventario",
+		icon: IconsCatalog.STORE,
+	},
 ];
 
 export const SidebarComponet = () => {
