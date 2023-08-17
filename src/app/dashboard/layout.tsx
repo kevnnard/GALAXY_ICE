@@ -1,4 +1,3 @@
-import { HeaderComponent } from "@/components/app/header";
 import { SidebarComponet } from "@/components/app/sidebar";
 import type { Metadata } from "next";
 
@@ -14,7 +13,7 @@ export default function DashcboardLayout({
 }) {
 	return (
 		<>
-			<HeaderComponent />
+			{/* <HeaderComponent /> */}
 			<div className="flex w-full h-full">
 				<SidebarComponet />
 				{children}
